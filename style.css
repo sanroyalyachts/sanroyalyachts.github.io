@@ -446,8 +446,8 @@ nav #menu a {
     transition: 0.1s ease-in;
 }
 
-nav #menu a:hover,
-nav #menu .active a {
+nav #menu a:hover/*,
+nav #menu .active a */{
     background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -968,8 +968,8 @@ service-sticky
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 }
-#service-sticky li a:hover,
-#service-sticky li.active a{
+#service-sticky li a:hover/*,
+#service-sticky li.active a*/{
     background-color: #000;
     color: #fff;
 }
