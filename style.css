@@ -521,7 +521,7 @@ nav #button-area {
 }
 
 .grid-4>div div:nth-child(3) {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 13px;
     color: var(--fcolor);
 }
@@ -680,7 +680,7 @@ nav #button-area {
     width: inherit;
     height: 200px;
     display: none;
-    animation: slider-animation 0.3s ease-in;
+    animation: slider-animation 0.5s ease-in;
 
 }
 
@@ -919,8 +919,13 @@ service-sticky
     background-color: #fff;
     position: sticky;
     top: 148px;
-    width: auto;
+    width: 100%;
     z-index: 999;
+    overflow-x: auto;
+}
+#service-sticky-container > div{
+   width: 100%;
+   min-width: 1134px;
 }
 #service-sticky{
     margin: 0;
@@ -1060,7 +1065,7 @@ service-sticky
     right: -20px;
     top: 10px;
     width: 1px;
-    height: 80px;
+    height: calc(100% - 20px);
     content: '';
     background-color: #5254A3;
 }
@@ -1102,9 +1107,9 @@ service-sticky
     margin: 0;
     list-style: none;
     color: var(--pfc);
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 22px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
 }
 .about-us-1{
     color: var(--pfc);
@@ -1135,13 +1140,16 @@ service-sticky
 }
 
 .faq-item{
-    font-size: 14px;
     font-weight: 500;
     color: var(--fcolor);
+    padding-top: 10px;
 }
 .faq-item strong{
     display: block;
     color: #000;
+}
+.faq-item span{
+    font-weight: 400;
 }
 .faq-2{
     color: #E6BF66;
@@ -1164,6 +1172,7 @@ service-sticky
     font-weight: 400;
     color: #ADADAD;
     line-height: 20px;
+    margin-top: -16px;
 }
 #faq .button{
     width: 180px;
@@ -1217,9 +1226,10 @@ footer > div > div{
     opacity: 0.72;
 }
 .ft-p-1{
-    font-weight: 500;
+    font-weight: 400;
     font-size: 14px;
     color: var(--fcolor);
+    line-height: 20px;
 }
 .footer-social-media ul{
     margin: 0;
@@ -1316,11 +1326,15 @@ footer .address-contact a:hover{
     bottom: 30px;
     width: 54px;
     height: 54px;
-    background-color: #128c7e;
+    background-color: rgba(18, 140, 126, 0.72);
     z-index: 1000;
     border-radius: 100%;
     text-align: center;
     line-height: 48px;
+    transition: 0.2s ease-in;
+}
+.whatsapp-pulse:hover{
+    transform: scale(0.8);
 }
 .whatsapp-pulse .icon{
     width: 30px;
@@ -1351,6 +1365,129 @@ footer .address-contact a:hover{
     border: solid 2px rgba(0, 0, 0, 0.1);
     border-radius: 100%;
     animation: wpulse 3s linear infinite;
+}
+
+.phone-animation{
+    position: relative;
+}
+.phone-animation::after{
+    position: absolute;
+    left: -4px;
+    top: 12px;
+    width: 20px;
+    height: 20px;
+    content: '';
+    border-radius: 50%;
+    border: solid 3px #fff;
+    animation: phone-animation 2s linear infinite;
+}
+.phone-animation .icon{
+    animation: phone-icon-anim 1s ease-in infinite;
+}
+
+.dialog-page{
+    position: fixed;
+    right: 0;
+    top: 148px;
+    width: 360px;
+    height: calc(100% - 148px);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    padding: 20px;
+    box-shadow: -3px 0 8px rgba(0, 0, 0, 0.09);
+    overflow-y: auto;
+    display: none;
+    font-size: 15px;
+    line-height: 20px;
+}
+.dialog-page > div{
+    position: relative;
+}
+.dialog-page > div .close-button{
+    position: absolute;
+    text-decoration: none;
+    font-weight: 700;
+    right: 0;
+    top: 0;
+    background: #000;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    color: #ccc;
+    opacity: 0.72;
+    border-radius: 50%;
+    transition: 0.1s ease-in;
+}
+.dialog-page > div .close-button:hover{
+    opacity: 1;
+    transform: scale(1.5);
+}
+.dialog-page > div .close-button:active{
+    transform: scale(1);
+}
+
+.dialog-page h3{
+    padding: 0;
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    padding-top: 30px;
+}
+
+.dialog-page.show{
+    display: block;
+    animation: dlg-show 0.1s ease-out;
+}
+
+.dialog-page.remove{
+    display: block;
+    animation: dlg-remove 0.1s ease-in;
+}
+
+@keyframes dlg-show {
+    0%{
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes dlg-remove {
+    0%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+@keyframes phone-icon-anim {
+    0%{
+        transform: rotate(0);
+    }
+    50%{
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes phone-animation {
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    } 
+    50%{
+        opacity: 1;
+    } 
+    100%{
+        opacity: 0;
+        transform: scale(2);
+    } 
 }
 
 @keyframes wpulse {
@@ -1393,9 +1530,9 @@ footer .address-contact a:hover{
         padding-left: 20px;
         padding-right: 20px;
     }
-    #service-sticky-container{
+    /* #service-sticky-container{
         display: none;
-    }
+    } */
     #service-pages > div:last-child > div{
         top: 168px;
     }
@@ -1533,10 +1670,10 @@ footer .address-contact a:hover{
 
     #hero>div {
         width: 100%;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
-    #hero-content {
+    #hero > div > div:last-child{
         margin-top: 20px;
     }
 
@@ -1614,6 +1751,14 @@ footer .address-contact a:hover{
         text-align: center;
         font-size: 12px;
     }
+    #slider .details {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .developer{
+        font-size: 11px;
+        margin-top: 2px;
+    }
 }
 @media only screen and (max-width: 451px) {
     #top-bar ul:first-child {
@@ -1624,5 +1769,15 @@ footer .address-contact a:hover{
     }
     #home #button-area{
         display: none;
+    }
+    .dialog-page{
+        width: 100%;
+        box-shadow: none;
+    }
+    .spage .price > span{
+        font-size: 30px;
+    }
+    .spage .price > div > span:first-child{
+        font-size: 12px;
     }
 }
