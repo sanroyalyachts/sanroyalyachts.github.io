@@ -1142,7 +1142,7 @@ service-sticky
 .faq-item{
     font-weight: 500;
     color: var(--fcolor);
-    padding-top: 10px;
+    padding-top: 20px;
 }
 .faq-item strong{
     display: block;
