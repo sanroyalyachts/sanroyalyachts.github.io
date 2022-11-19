@@ -91,9 +91,6 @@ section .heading {
     margin-bottom: 48px;
 }
 
-section.grey {
-    background-color: #F8F8F8;
-}
 
 .heading>div {
     max-width: 900px;
@@ -972,6 +969,9 @@ service-sticky
 #service-sticky li.active a*/{
     background-color: #000;
     color: #fff;
+}
+#features{
+    background-color: #f8f8f8;
 }
 
 /* service-pages */
